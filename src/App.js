@@ -1,10 +1,17 @@
 import React from "react";
 import LinkButton from './components/LinkButton';
+import TextBanner from './components/TextBanner';
+import ProfilePic from './components/ProfilePic';
 
 const App = () => {
 
   return (
     <div>
+
+      <TextBanner
+        title="Gotham"
+        text="Build. Evolve. Collaborate."
+      />
       <LinkButton
         name="Instagram"
         link="https://www.instagram.com/devpobrerico/"
@@ -21,7 +28,15 @@ const App = () => {
         name="LinkedIn"
         link="https://www.linkedin.com/company/gotham-ong/"
       />
-
+      <LinkButton
+        title="Contribuidores"
+        name="GitHub"
+        link="https://github.com/ItaloCobains"
+      />
+      <LinkButton
+        name="LinkedIn"
+        link="https://www.linkedin.com/in/italo-brandão-80994020b/"
+      />
     </div>
   )
 }
