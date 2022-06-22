@@ -7,4 +7,4 @@ helloRouter.use(express.json());
 
 helloRouter.get("/", helloController.allUser);
 
-export default helloRouter;
+
