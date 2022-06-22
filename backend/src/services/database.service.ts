@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 const { DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME, GAMES_COLLECTION_NAME } =
   process.env;
 
-export const collections: { hello?: mongoDB.Collection } = {};
+export const collections: { gotham?: mongoDB.Collection } = {};
 
 export async function connectToDatabase() {
   dotenv.config();
@@ -21,7 +21,9 @@ export async function connectToDatabase() {
     GAMES_COLLECTION_NAME as string
   );
 
-  collections.hello = helloCollection;
+  collections.gotham = helloCollection;
 
-  console.log(`Successfully connected to database: ${db.databaseName} and collection: ${helloCollection.collectionName}`)
+  console.log(
+    `Successfully connected to database: ${db.databaseName} and collection: ${helloCollection.collectionName}`
+  );
 }

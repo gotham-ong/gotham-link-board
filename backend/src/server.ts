@@ -2,7 +2,7 @@ import express, { Request, Response, ErrorRequestHandler } from "express";
 import path from "path";
 import "dotenv/config";
 import cors from "cors";
-import { helloRouter } from "./routes/hello.router";
+import { UserRouter } from "./routes/User.router";
 import { connectToDatabase } from "./services/database.service";
 
 const server = express();
@@ -26,7 +26,7 @@ server.use(errorHandler);
 
 connectToDatabase()
   .then(() => {
-    server.use("/", helloRouter);
+    server.use("/", UserRouter);
 
     server.listen(process.env.SERVER_PORT, () => {
       console.log(
