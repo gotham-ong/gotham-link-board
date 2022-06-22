@@ -1,0 +1,1 @@
+{"version":"1.0.0","name":"api-link","dependencies":{"cors":{"version":"2.8.5"},"dotenv":{"version":"10.0.0"},"express":{"version":"4.18.1"},"pg-hstore":{"version":"2.3.4"},"pg":{"version":"8.7.3"},"sequelize":{"version":"6.21.0"},"validator":{"version":"13.7.0"}}}
