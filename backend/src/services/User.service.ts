@@ -29,3 +29,16 @@ export const findOneUser = async (
     return false;
   }
 };
+
+export const InsertOneUserInDatabase = async (
+  infos: User
+): Promise<false | mongoDB.InsertOneResult<mongoDB.Document> | undefined> => {
+  try {
+    const result = await collections.gotham?.insertOne(infos);
+    if (result) {
+      return result;
+    }
+  } catch (error) {
+    return false;
+  }
+};

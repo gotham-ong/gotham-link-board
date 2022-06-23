@@ -4,18 +4,19 @@ import "dotenv/config";
 import cors from "cors";
 import { UserRouter } from "./routes/User.router";
 import { connectToDatabase } from "./services/database.service";
+import { MulterError } from "multer";
 
 const server = express();
 
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  res.status(400).json({message: err});
+  res.status(400);
 
-  // if (err instanceof MulterError) {
-  //   res.json({ message: err.code });
-  // } else {
-  //   console.error(err.message);
-  //   res.json({ message: err.message });
-  // }
+  if (err instanceof MulterError) {
+    res.json({ message: err.code });
+  } else {
+    console.error(err.message);
+    res.json({ message: err.message });
+  }
 };
 
 server.use(cors());

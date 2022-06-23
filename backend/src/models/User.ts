@@ -6,6 +6,7 @@ export default class User {
     public age: number,
     public email: string,
     public password: string,
+    public icon: string,
     public id?: ObjectId
   ) {}
 }
