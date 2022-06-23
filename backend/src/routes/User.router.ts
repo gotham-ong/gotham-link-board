@@ -34,3 +34,7 @@ UserRouter.post(
   upload.single("icon"),
   UserController.createNewUser
 );
+
+UserRouter.put("/:id", UserController.updateUser);
+
+UserRouter.delete("/:id", UserController.deleteUser);

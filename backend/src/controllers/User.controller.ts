@@ -4,6 +4,7 @@ import { ObjectId } from "mongodb";
 import sharp from "sharp";
 import User from "../models/User";
 import { unlink } from "fs/promises";
+import { collections } from "../services/database.service";
 
 export const allUser = async (req: Request, res: Response): Promise<void> => {
   const users = await UserService.findAllUser();
@@ -60,5 +61,57 @@ export const createNewUser = async (
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error });
+  }
+};
+
+export const updateUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const id = req?.params?.id;
+
+  try {
+    const updateUser: User = req.body as User;
+
+    const result = await collections.gotham?.updateMany(
+      { _id: new ObjectId(id) },
+      { $set: updateUser }
+    );
+
+    result
+      ? res
+          .status(200)
+          .json({ message: `Sucesso ao atualizar o user com id ${id}` })
+      : res.status(304).json({ message: `User com id ${id} não atualizado` });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error });
+  }
+};
+
+export const deleteUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const id = req.params.id;
+
+  try {
+    const query = { _id: new ObjectId(id) };
+    const result = await UserService.deleteUser(query);
+
+    if (result && result.deletedCount) {
+      res
+        .status(202)
+        .json({ message: `Sucesso ao remover o user do id ${id}` });
+    } else if (!result) {
+      res
+        .status(400)
+        .json({ message: `Falha ao tentar remover o user com id ${id}` });
+    } else if (!result.deletedCount) {
+      res.status(404).json({ message: `User com id ${id} não existe` });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error });
   }
 };
