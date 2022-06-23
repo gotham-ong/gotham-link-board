@@ -1,0 +1,2 @@
+aqui fica os arquivos temporarios de imagem.
+a existencia desta pasta e obrigatoria
