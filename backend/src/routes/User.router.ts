@@ -6,3 +6,5 @@ export const UserRouter = express.Router();
 UserRouter.use(express.json());
 
 UserRouter.get("/", UserController.allUser);
+
+UserRouter.get('/:id', UserController.onlyOneUser)

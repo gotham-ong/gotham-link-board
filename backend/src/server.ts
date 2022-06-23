@@ -26,7 +26,7 @@ server.use(errorHandler);
 
 connectToDatabase()
   .then(() => {
-    server.use("/", UserRouter);
+    server.use("/User", UserRouter);
 
     server.listen(process.env.SERVER_PORT, () => {
       console.log(
