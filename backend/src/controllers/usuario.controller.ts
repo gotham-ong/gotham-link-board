@@ -25,7 +25,10 @@ class UsuarioController {
       return res.status(400).send({ message: "Senha incorreta" });
     }
 
-    return res.json(usuario);
+    return res.json({
+      usuario,
+      token: usuario.gerarToken(),
+    });
   }
 }
 
