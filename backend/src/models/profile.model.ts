@@ -7,21 +7,27 @@ interface ProfileModel extends ProfileInterface {}
 const ProfileSchema = new Schema({
   icon: {
     type: String,
+    required: true,
   },
   instagram: {
     type: String,
+    required: false,
   },
   facebook: {
     type: String,
+    required: false,
   },
   github: {
     type: String,
+    required: false,
   },
   discord: {
     type: String,
+    required: false,
   },
   message: {
     type: String,
+    required: false,
   },
 });
 
