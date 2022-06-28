@@ -3,9 +3,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import "dotenv/config";
 import usuarioRoute from "./routes/usuario.route";
+import profileRoute from "./routes/profile.route";
 
 // Fazer gerenciamento de imagens na api usando outra rota diferente da de usuario
-
 
 export class App {
   private express: express.Application;
@@ -40,5 +40,6 @@ export class App {
 
   private routes(): void {
     this.express.use("/usuarios", usuarioRoute);
+    this.express.use("/profile", profileRoute);
   }
 }

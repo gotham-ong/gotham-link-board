@@ -7,4 +7,5 @@ usuarioRoute.post("/cadastro", usuarioController.cadastrar);
 
 usuarioRoute.post("/login", usuarioController.autenticar);
 
+
 export default usuarioRoute;

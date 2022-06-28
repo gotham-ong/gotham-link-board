@@ -13,6 +13,7 @@ const UsuarioSchema = new Schema({
   nome: {
     type: String,
     required: true,
+    unique: true
   },
   senha: {
     type: String,
