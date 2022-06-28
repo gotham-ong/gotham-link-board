@@ -1,0 +1,1 @@
+// req.usuario para pegar as informaçoes do usuario q vem do middleware

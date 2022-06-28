@@ -4,6 +4,9 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import usuarioRoute from "./routes/usuario.route";
 
+// Fazer gerenciamento de imagens na api usando outra rota diferente da de usuario
+
+
 export class App {
   private express: express.Application;
   private port = 9000;

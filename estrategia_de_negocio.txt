@@ -1,0 +1,3 @@
+backend - tera um api que ira gerenciar 2 serviços, login, e coleta de dados paras as url
+
+frontend - tera um landingpage e nela tera aba de login, pois login tera uma aba para colocar os links e gerar sua aba de acordo com seu id 
