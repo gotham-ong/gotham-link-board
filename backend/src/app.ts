@@ -25,6 +25,7 @@ export class App {
   private middlewares(): void {
     this.express.use(express.json());
     this.express.use(cors());
+    this.express.use(express.static(`${process.cwd()}/public`));
     this.express.use(this.erroHandler);
   }
 
