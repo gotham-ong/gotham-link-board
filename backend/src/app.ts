@@ -4,8 +4,7 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import usuarioRoute from "./routes/usuario.route";
 import profileRoute from "./routes/profile.route";
-
-// Fazer gerenciamento de imagens na api usando outra rota diferente da de usuario
+import { MulterError } from "multer";
 
 export class App {
   private express: express.Application;
@@ -26,6 +25,7 @@ export class App {
   private middlewares(): void {
     this.express.use(express.json());
     this.express.use(cors());
+    this.express.use(this.erroHandler);
   }
 
   private listen(): void {
@@ -41,5 +41,16 @@ export class App {
   private routes(): void {
     this.express.use("/usuarios", usuarioRoute);
     this.express.use("/profile", profileRoute);
+  }
+
+  private erroHandler(err, res, req, next): void {
+    res.status(400);
+
+    if (err instanceof MulterError) {
+      res.json({ message: err.code });
+    } else {
+      console.error(err.message);
+      res.json({ message: err.message });
+    }
   }
 }
