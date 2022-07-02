@@ -2,9 +2,14 @@ import { model, Schema } from "mongoose";
 import { ProfileInterface } from "../interfaces/profile.interface";
 import "dotenv/config";
 
-interface ProfileModel extends ProfileInterface {}
+interface ProfileModel extends ProfileInterface { }
 
 const ProfileSchema = new Schema({
+  remetente: {
+    type: Schema.Types.ObjectId,
+    ref: "Usuario",
+    required: true,
+  },
   icon: {
     type: String,
     required: true,

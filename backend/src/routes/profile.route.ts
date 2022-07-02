@@ -23,6 +23,10 @@ const upload = multer({
   limits: { fieldSize: 2000000 },
 });
 
-profileRoute.post("/cadastarProfile", upload.single("icon"), profileController.cadastrarProfile);
+profileRoute.post(
+  "/cadastarProfile",
+  upload.single("icon"),
+  profileController.cadastrarProfile
+);
 
 export default profileRoute;
